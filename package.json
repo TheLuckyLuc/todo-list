@@ -1,0 +1,17 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "autoprefixer": "postcss style.css --dir lib"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^9.3.1"
+  },
+  "browserslist": [
+    "> 1%"
+  ]
+}
