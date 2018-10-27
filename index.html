@@ -10,14 +10,26 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
-        <h1>todos</h1>
+        <div id="todo">
+            <h1>todos</h1>
+            <input type="text" id="input" placeholder="What needs to be done?">
+            <ul id="list">
+                <li class="item">
+                    <div id="item-check">
+                        <input type="checkbox" class="item-check__box">
+                        <span>Something</span>
+                    </div>
+                    <i class="fas fa-times cross"></i>
+                </li>
+            </ul>
+        </div>
 
         <script src="main.js" async defer></script>
     </body>
