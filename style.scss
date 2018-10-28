@@ -21,15 +21,36 @@ body {
     align-items: center;
     flex-direction: column;
     width: 80%;
+    max-width: 580px;
+}
+
+#search {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -1px 11px 45px -5px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+label[for=input] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 4rem;
+    background: #FEFEFE;
+    .arrow-down {
+        color: rgba(0, 0, 0, 0.2);
+        display: none;
+    }
 }
 
 #input {
     height: 4rem;
-    border: 1px solid rgba(0, 0, 0, 0.07);
-    box-shadow: -1px 11px 45px -5px rgba(0,0,0,0.25);
     width: 100%;
-    max-width: 580px;
-    padding: 0 1.5rem 0 3rem;
+    border: none;
+    padding: 0 1.5rem 0 0;
     font-size: 1rem;
     color: rgba(0, 0, 0, 0.5);
     &:focus {
@@ -58,6 +79,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    &:hover > .cross {
+        display: block;
+    }
     #item-check {
         display: flex;
         align-items: center;
@@ -69,5 +93,6 @@ body {
     }
     .cross {
         margin: 0 1.5rem 0 0;
+        display: none;
     }
 }
