@@ -1,6 +1,7 @@
 const input = document.querySelector('#input');
 const ul = document.querySelector('#list');
 const arrow = document.querySelector('.arrow-down');
+const counter = document.querySelector('#counter');
 
 ul.addEventListener('click', function(e){
     const target = e.target;
@@ -8,6 +9,7 @@ ul.addEventListener('click', function(e){
     if (target.classList.contains('cross')) {
         // if the cross is clicked, remove the parent element i.e. the whole li
         target.parentNode.remove();
+        countItems();
 
         if (!document.querySelector('li')) {
             arrow.classList.remove('visible');
@@ -29,5 +31,17 @@ input.addEventListener('keypress', function(e){
         // clear the input bar once enter is pressed
         input.value = '';
         arrow.classList.add('visible');
+        countItems();
     }
 });
+
+function countItems(){
+    if (document.querySelector('li')) {
+        const li = document.querySelectorAll('li');
+        let count = 0;
+        li.forEach(function(){
+            count++;
+        });
+        return (count === 1) ? counter.textContent = `${count} item left` : counter.textContent = `${count} items left`;
+    }
+}
