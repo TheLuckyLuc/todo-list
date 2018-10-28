@@ -36,6 +36,8 @@ body {
 #search #search-bar {
   display: flex;
   width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-bottom: none;
 }
 
 label[for=input] {
@@ -77,6 +79,7 @@ label[for=input] .arrow-down {
 }
 #list .list-item {
   border: 1px solid rgba(0, 0, 0, 0.07);
+  border-bottom: none;
   height: 4rem;
   background: #FFFFFF;
   color: rgba(0, 0, 0, 0.5);
