@@ -47,7 +47,6 @@ label[for=input] {
   background: #FEFEFE;
 }
 label[for=input] .arrow-down {
-  color: rgba(0, 0, 0, 0.2);
   display: none;
 }
 
@@ -142,6 +141,7 @@ label[for=input] .arrow-down {
 
 .visible {
   display: block !important;
+  color: rgba(0, 0, 0, 0.2);
 }
 
 .visible-footer {
@@ -155,6 +155,10 @@ label[for=input] .arrow-down {
 .border {
   border: 1px solid rgba(0, 0, 0, 0.5) !important;
   border-radius: 5px !important;
+}
+
+.arrow-color {
+  color: rgba(0, 0, 0, 0.5) !important;
 }
 
 /*# sourceMappingURL=style.css.map */

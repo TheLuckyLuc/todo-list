@@ -7,6 +7,7 @@ const all = document.querySelector('#all');
 const active = document.querySelector('#active');
 const completed = document.querySelector('#completed');
 const clear = document.querySelector('#clear');
+const label = document.querySelector('label');
 
 ul.addEventListener('click', function(e){
     const target = e.target;
@@ -129,6 +130,27 @@ function checkForList() {
     if (!document.querySelector('li')) {
         // if no li element is present, remove the below classes
         arrow.classList.remove('visible');
+        arrow.classList.remove('arrow-color');
         footer.classList.remove('visible-footer');
     }
 }
+
+label.addEventListener('click', function() {
+    const checkboxes = document.querySelectorAll('.item-check__box');
+
+    if (arrow.classList.contains('arrow-color')) {
+        arrow.classList.toggle('arrow-color');
+        for (checkbox of checkboxes) {
+            checkbox.checked = false;
+        }
+        countItems();
+        return;
+    }
+
+    for (checkbox of checkboxes) {
+        checkbox.checked = true;
+    }
+
+    arrow.classList.toggle('arrow-color');
+    countItems();
+});
