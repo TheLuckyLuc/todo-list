@@ -120,6 +120,11 @@ label[for=input] .arrow-down {
   padding: 0 0.5rem;
   font-size: 0.6rem;
 }
+@media screen and (max-width: 350px) {
+  #footer {
+    font-size: 0.5rem;
+  }
+}
 #footer #footer-buttons span {
   border: 1px solid rgba(0, 0, 0, 0);
   padding: 0.2rem;

@@ -9,6 +9,9 @@ const completed = document.querySelector('#completed');
 const clear = document.querySelector('#clear');
 const label = document.querySelector('label');
 
+// add a border to the 'All' button in the footer
+all.classList.add('border');
+
 ul.addEventListener('click', function(e){
     const target = e.target;
     // check if the target element that was clicked on is the cross
@@ -42,8 +45,6 @@ input.addEventListener('keypress', function(e){
         // make the arrow appear once there is at least 1 li
         arrow.classList.add('visible');
         countItems();
-        // add a border to the 'All' button in the footer
-        all.classList.add('border');
     }
 });
 
