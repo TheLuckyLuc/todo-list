@@ -3,6 +3,9 @@ const ul = document.querySelector('#list');
 const arrow = document.querySelector('.arrow-down');
 const counter = document.querySelector('#counter');
 const footer = document.querySelector('#footer');
+const all = document.querySelector('#all');
+const active = document.querySelector('#active');
+const completed = document.querySelector('#completed');
 
 ul.addEventListener('click', function(e){
     const target = e.target;
@@ -45,13 +48,13 @@ function countItems(){
         // if an li is present, make the footer visible
         footer.classList.add('visible-footer');
         // select any present lis
-        const li = document.querySelectorAll('li');
+        const lis = document.querySelectorAll('li');
         // set a counter to start at 0
         let count = 0;
         // loop through each li that's present and increment the counter by 1 each time
-        for (item of li) {
+        for (li of lis) {
             // check if the checkbox of the current li is checked
-            if (!item.childNodes[0].childNodes[1].checked) {
+            if (!li.childNodes[0].childNodes[1].checked) {
                 // if it isn't checked, increment the counter by 1
                 count++;
             }
@@ -59,4 +62,51 @@ function countItems(){
         // update the counter with the outstanding lis once the loop has completed
         return (count === 1) ? counter.textContent = `${count} item left` : counter.textContent = `${count} items left`;
     }
+}
+
+all.addEventListener('click', function() {
+    // add a border the button that was clicked
+    addBorder(this);
+    const lis = document.querySelectorAll('li');
+
+    for (li of lis) {
+        // remove the invisible class from all li elements
+        li.classList.remove('invisible');
+    }
+});
+
+active.addEventListener('click', function() {
+    addBorder(this);
+    const lis = document.querySelectorAll('li');
+
+    for (li of lis) {
+        // make all checked lis invisible
+        if (li.childNodes[0].childNodes[1].checked) {
+            li.classList.add('invisible');
+        }
+    }
+});
+
+completed.addEventListener('click', function() {
+    addBorder(this);
+    const lis = document.querySelectorAll('li');
+
+    for (li of lis) {
+        // make all un-checked lis invisible
+        if (!li.childNodes[0].childNodes[1].checked) {
+            li.classList.add('invisible');
+        }
+    }
+});
+
+function addBorder(element) {
+    // grab all of the footer buttons
+    const buttons = document.querySelectorAll('.buttons');
+
+    for (button of buttons) {
+        // cycle through each button and remove the border class
+        button.classList.remove('border');
+    }
+    // add the border class to the element that was clicked
+    element.classList.add('border');
 }
