@@ -18,6 +18,10 @@ ul.addEventListener('click', function(e){
 
         checkForList();
     }
+    // if a checkbox is clicked, run the boxCheck function
+    if (target.classList.contains('item-check__box')) {
+        boxCheck();
+    }
     // run the countItems function to update the outstanding item counter
     countItems();
 });
@@ -135,22 +139,55 @@ function checkForList() {
     }
 }
 
-label.addEventListener('click', function() {
-    const checkboxes = document.querySelectorAll('.item-check__box');
+label.addEventListener('click', tickThemAll);
 
+function tickThemAll() {
+    const checkboxes = document.querySelectorAll('.item-check__box');
+    // if the arrow-color class is on the arrow icon, remove it and untick all the boxes
     if (arrow.classList.contains('arrow-color')) {
-        arrow.classList.toggle('arrow-color');
+        arrow.classList.remove('arrow-color');
         for (checkbox of checkboxes) {
             checkbox.checked = false;
         }
+        // update the list counter
         countItems();
+        // break the function so the boxes don't get re-checked
         return;
     }
-
+    // if the arrow-color class isn't on the arrow, loop through the checkboxes and tick them all
     for (checkbox of checkboxes) {
         checkbox.checked = true;
     }
 
-    arrow.classList.toggle('arrow-color');
+    arrow.classList.add('arrow-color');
     countItems();
-});
+}
+
+function boxCheck() {
+    const checkboxes = document.querySelectorAll('.item-check__box');
+
+    // assume all the boxes are checked
+    let allChecked = true;
+    // loop through each checkbox to see if it's checked
+    for (checkbox of checkboxes) {
+        // if the current checkbox isn't checked, set the 'allChecked' variable to false, as they're not all checked
+        if (checkbox.checked === false) {
+            allChecked = false;
+        }
+        // if the current box is checked and the 'active' button is active, remove it from the list
+        if (checkbox.checked === true && active.classList.contains('border')) {
+            checkbox.parentNode.parentNode.classList.add('invisible');
+        }
+        // if the current box is NOT checked and the 'completed' button is active, remove it from the list
+        if (checkbox.checked === false && completed.classList.contains('border')) {
+            checkbox.parentNode.parentNode.classList.add('invisible');
+        }
+    }
+    // if all the boxes are checked, colour the arrow in
+    if (allChecked) {
+        arrow.classList.add('arrow-color');
+        // get rid of the arrow colour if the boxes aren't all checked
+    } else {
+        arrow.classList.remove('arrow-color');
+    }
+}
