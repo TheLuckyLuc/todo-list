@@ -44,6 +44,7 @@ input.addEventListener('keypress', function(e){
         input.value = '';
         // make the arrow appear once there is at least 1 li
         arrow.classList.add('visible');
+        boxCheck();
         countItems();
     }
 });
