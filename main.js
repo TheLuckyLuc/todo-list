@@ -130,6 +130,7 @@ clear.addEventListener('click', function() {
         }
     }
     checkForList();
+    boxCheck();
 });
 
 function checkForList() {
@@ -138,6 +139,7 @@ function checkForList() {
         arrow.classList.remove('visible');
         arrow.classList.remove('arrow-color');
         footer.classList.remove('visible-footer');
+        clear.classList.remove('visible-clear__button');
     }
 }
 
@@ -153,6 +155,7 @@ function tickThemAll() {
         }
         // update the list counter
         countItems();
+        boxCheck();
         // break the function so the boxes don't get re-checked
         return;
     }
@@ -163,6 +166,7 @@ function tickThemAll() {
 
     arrow.classList.add('arrow-color');
     countItems();
+    boxCheck();
 }
 
 function boxCheck() {
@@ -170,19 +174,36 @@ function boxCheck() {
 
     // assume all the boxes are checked
     let allChecked = true;
+
+    // assume no boxes are checked
+    let noChecks = true;
+
     // loop through each checkbox to see if it's checked
     for (checkbox of checkboxes) {
         // if the current checkbox isn't checked, set the 'allChecked' variable to false, as they're not all checked
         if (checkbox.checked === false) {
             allChecked = false;
+        } else {
+            // if the current box IS checked, make the 'Clear complete' button visible
+            clear.classList.add('visible-clear__button');
+            // set 'noChecks' to false, as at least one is checked
+            noChecks = false;
         }
         // if the current box is checked and the 'active' button is active, remove it from the list
         if (checkbox.checked === true && active.classList.contains('border')) {
             checkbox.parentNode.parentNode.classList.add('invisible');
         }
+        // if the current box is NOT checked and the 'active' button is active, add it to the list
+        else if (checkbox.checked === false && active.classList.contains('border')) {
+            checkbox.parentNode.parentNode.classList.remove('invisible');
+        }
         // if the current box is NOT checked and the 'completed' button is active, remove it from the list
         if (checkbox.checked === false && completed.classList.contains('border')) {
             checkbox.parentNode.parentNode.classList.add('invisible');
+        }
+        // if the current box IS checked and the 'completed' button active, add it back to the list
+        else if (checkbox.checked === true && completed.classList.contains('border')) {
+            checkbox.parentNode.parentNode.classList.remove('invisible');
         }
     }
     // if all the boxes are checked, colour the arrow in
@@ -191,5 +212,10 @@ function boxCheck() {
         // get rid of the arrow colour if the boxes aren't all checked
     } else {
         arrow.classList.remove('arrow-color');
+    }
+
+    // if no boxes are checked, make the 'Clear complete' button invisible
+    if (noChecks) {
+        clear.classList.remove('visible-clear__button');
     }
 }

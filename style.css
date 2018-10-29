@@ -139,6 +139,7 @@ label[for=input] .arrow-down {
 #footer #footer-completed #clear {
   border: 1px solid rgba(0, 0, 0, 0);
   padding: 0.2rem;
+  visibility: hidden;
 }
 #footer #footer-completed #clear:hover {
   border: 1px solid rgba(0, 0, 0, 0.07);
@@ -166,6 +167,10 @@ label[for=input] .arrow-down {
 
 .arrow-color {
   color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.visible-clear__button {
+  visibility: visible !important;
 }
 
 /*# sourceMappingURL=style.css.map */
