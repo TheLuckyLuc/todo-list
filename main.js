@@ -6,6 +6,7 @@ const footer = document.querySelector('#footer');
 const all = document.querySelector('#all');
 const active = document.querySelector('#active');
 const completed = document.querySelector('#completed');
+const clear = document.querySelector('#clear');
 
 ul.addEventListener('click', function(e){
     const target = e.target;
@@ -14,11 +15,7 @@ ul.addEventListener('click', function(e){
         // if the cross is clicked, remove the parent element i.e. the whole li
         target.parentNode.remove();
 
-        if (!document.querySelector('li')) {
-            // if no li element is present, remove the below classes
-            arrow.classList.remove('visible');
-            footer.classList.remove('visible-footer');
-        }
+        checkForList();
     }
     // run the countItems function to update the outstanding item counter
     countItems();
@@ -40,6 +37,8 @@ input.addEventListener('keypress', function(e){
         // make the arrow appear once there is at least 1 li
         arrow.classList.add('visible');
         countItems();
+        // add a border to the 'All' button in the footer
+        all.classList.add('border');
     }
 });
 
@@ -83,6 +82,8 @@ active.addEventListener('click', function() {
         // make all checked lis invisible
         if (li.childNodes[0].childNodes[1].checked) {
             li.classList.add('invisible');
+        } else {
+            li.classList.remove('invisible');
         }
     }
 });
@@ -95,6 +96,8 @@ completed.addEventListener('click', function() {
         // make all un-checked lis invisible
         if (!li.childNodes[0].childNodes[1].checked) {
             li.classList.add('invisible');
+        } else {
+            li.classList.remove('invisible');
         }
     }
 });
@@ -109,4 +112,23 @@ function addBorder(element) {
     }
     // add the border class to the element that was clicked
     element.classList.add('border');
+}
+
+clear.addEventListener('click', function() {
+    const lis = document.querySelectorAll('li');
+
+    for (li of lis) {
+        if (li.childNodes[0].childNodes[1].checked) {
+            li.remove();
+        }
+    }
+    checkForList();
+});
+
+function checkForList() {
+    if (!document.querySelector('li')) {
+        // if no li element is present, remove the below classes
+        arrow.classList.remove('visible');
+        footer.classList.remove('visible-footer');
+    }
 }
