@@ -35,7 +35,8 @@ input.addEventListener('keypress', function(e){
         const li = document.createElement('li');
         li.className = 'list-item';
         li.innerHTML = `<div id="item-check">
-                            <input type="checkbox" class="item-check__box">
+                            <input type="checkbox" id="chk" class="item-check__box chk">
+                            <label for="chk"></label>
                             <span>${input.value}</span>
                         </div>
                         <i class="fas fa-times cross"></i>`;
