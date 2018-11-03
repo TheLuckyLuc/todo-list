@@ -160,6 +160,7 @@ label[for=input] {
             transition: all ease-out $transitionSpeed;
             &:hover {
                 color: $teal;
+                cursor: default;
             }
         }
     }

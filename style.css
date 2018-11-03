@@ -158,6 +158,7 @@ label[for=input]:hover {
 }
 #list .list-item .cross:hover {
   color: rgba(72, 182, 168, 0.76);
+  cursor: default;
 }
 
 #footer {
