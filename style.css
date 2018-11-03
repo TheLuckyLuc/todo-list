@@ -21,8 +21,10 @@ body {
   max-width: 580px;
 }
 #todo h1 {
+  color: rgba(72, 182, 168, 0.76);
   display: flex;
   justify-content: center;
+  margin: 4rem 0 1rem 0;
 }
 
 #search {
@@ -44,12 +46,15 @@ label[for=input] {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 3rem;
+  width: 4.5rem;
   height: 4rem;
   background: #FEFEFE;
 }
 label[for=input] .arrow-down {
   display: none;
+}
+label[for=input]:hover {
+  cursor: pointer;
 }
 
 #input {
@@ -133,6 +138,9 @@ label[for=input] .arrow-down {
   opacity: 0;
   transition: all ease-out 200ms;
 }
+#list .list-item #item-check input[type=checkbox] + label:hover {
+  cursor: pointer;
+}
 #list .list-item #item-check input[type=checkbox]:checked + label {
   border: 5px solid #22b573;
 }
@@ -146,6 +154,10 @@ label[for=input] .arrow-down {
 #list .list-item .cross {
   margin: 0 1.5rem 0 0;
   display: none;
+  transition: all ease-out 200ms;
+}
+#list .list-item .cross:hover {
+  color: rgba(72, 182, 168, 0.76);
 }
 
 #footer {
