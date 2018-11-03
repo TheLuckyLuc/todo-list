@@ -177,6 +177,9 @@ label[for=input]:hover {
     font-size: 0.5rem;
   }
 }
+#footer #footer-counter {
+  width: 3rem;
+}
 #footer #footer-buttons span {
   border: 1px solid rgba(0, 0, 0, 0);
   padding: 0.2rem;
