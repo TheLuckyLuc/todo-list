@@ -8,6 +8,8 @@ const active = document.querySelector('#active');
 const completed = document.querySelector('#completed');
 const clear = document.querySelector('#clear');
 const label = document.querySelector('label');
+// set a variable that will add a unique number to the ID of each generated li checkbox (so the labels work, as they can't all use the same ID)
+let unique = 0;
 
 // add a border to the 'All' button in the footer
 all.classList.add('border');
@@ -32,11 +34,13 @@ ul.addEventListener('click', function(e){
 input.addEventListener('keypress', function(e){
     // listen out for the 'enter' key and make sure the input isn't empty
     if (e.keyCode === 13 && input.value) {
+        // increment the unique counter by 1
+        unique++;
         const li = document.createElement('li');
         li.className = 'list-item';
         li.innerHTML = `<div id="item-check">
-                            <input type="checkbox" id="chk" class="item-check__box chk">
-                            <label for="chk"></label>
+                            <input type="checkbox" id="chk${unique}" class="item-check__box chk">
+                            <label for="chk${unique}"></label>
                             <span>${input.value}</span>
                         </div>
                         <i class="fas fa-times cross"></i>`;
@@ -141,6 +145,8 @@ function checkForList() {
         arrow.classList.remove('arrow-color');
         footer.classList.remove('visible-footer');
         clear.classList.remove('visible-clear__button');
+        // reset the unique counter to 0 once no lis are left
+        unique = 0;
     }
 }
 
