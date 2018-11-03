@@ -13,6 +13,6 @@
     "postcss-cli": "^6.0.1"
   },
   "browserslist": [
-    "> 1%"
+    "last 10 version"
   ]
 }

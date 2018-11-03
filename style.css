@@ -1,5 +1,6 @@
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 html,
@@ -11,8 +12,14 @@ body {
 }
 
 body {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background: whitesmoke;
 }
 
@@ -22,30 +29,62 @@ body {
 }
 #todo h1 {
   color: rgba(72, 182, 168, 0.76);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 4rem 0 1rem 0;
 }
 
 #search {
   width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: -1px 11px 45px -5px rgba(0, 0, 0, 0.25);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: -1px 11px 45px -5px rgba(0, 0, 0, 0.25);
+          box-shadow: -1px 11px 45px -5px rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(0, 0, 0, 0.07);
   margin-bottom: 4rem;
 }
 #search #search-bar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
 }
 
 label[for=input] {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 4.5rem;
   height: 4rem;
   background: #FEFEFE;
@@ -69,6 +108,18 @@ label[for=input]:hover {
   outline: none;
 }
 
+::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+::-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.2);
+}
+
 ::placeholder {
   color: rgba(0, 0, 0, 0.2);
 }
@@ -85,21 +136,38 @@ label[for=input]:hover {
   min-height: 4rem;
   background: #FFFFFF;
   color: rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 100%;
 }
 #list .list-item:hover > .cross {
   display: block;
 }
 #list .list-item #item-check {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 80%;
   margin-left: 1rem;
 }
 #list .list-item #item-check span {
+  -webkit-transition: color 0.2s linear;
+  -o-transition: color 0.2s linear;
   transition: color 0.2s linear;
   width: 100%;
   overflow-wrap: break-word;
@@ -108,6 +176,8 @@ label[for=input]:hover {
 }
 #list .list-item #item-check .item-check__box {
   margin: 0 1rem;
+  -webkit-transition: color 2s linear;
+  -o-transition: color 2s linear;
   transition: color 2s linear;
 }
 #list .list-item #item-check .item-check__box:checked ~ span {
@@ -119,10 +189,16 @@ label[for=input]:hover {
   width: 30px;
   height: 30px;
   border: 5px solid rgba(0, 0, 0, 0.5);
-  border-radius: 100%;
+  -webkit-border-radius: 100%;
+          border-radius: 100%;
+  -webkit-transition: all ease-out 200ms;
+  -o-transition: all ease-out 200ms;
   transition: all ease-out 200ms;
   color: rgba(0, 0, 0, 0.5);
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 #list .list-item #item-check input[type=checkbox] + label:after {
   content: "";
@@ -133,9 +209,15 @@ label[for=input]:hover {
   border-left: 5px solid #22b573;
   top: 25%;
   left: 50%;
-  transform-origin: bottom left;
-  transform: rotate(-45deg);
+  -webkit-transform-origin: bottom left;
+      -ms-transform-origin: bottom left;
+          transform-origin: bottom left;
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
   opacity: 0;
+  -webkit-transition: all ease-out 200ms;
+  -o-transition: all ease-out 200ms;
   transition: all ease-out 200ms;
 }
 #list .list-item #item-check input[type=checkbox] + label:hover {
@@ -154,6 +236,8 @@ label[for=input]:hover {
 #list .list-item .cross {
   margin: 0 1.5rem 0 0;
   display: none;
+  -webkit-transition: all ease-out 200ms;
+  -o-transition: all ease-out 200ms;
   transition: all ease-out 200ms;
 }
 #list .list-item .cross:hover {
@@ -167,8 +251,14 @@ label[for=input]:hover {
   height: 2rem;
   border-top: 1px solid rgba(0, 0, 0, 0.07);
   display: none;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: rgba(0, 0, 0, 0.5);
   padding: 0 0.5rem;
   font-size: 0.6rem;
@@ -187,7 +277,8 @@ label[for=input]:hover {
 }
 #footer #footer-buttons span:hover {
   border: 1px solid rgba(0, 0, 0, 0.07);
-  border-radius: 5px;
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
   cursor: pointer;
 }
 #footer #footer-completed #clear {
@@ -197,7 +288,8 @@ label[for=input]:hover {
 }
 #footer #footer-completed #clear:hover {
   border: 1px solid rgba(0, 0, 0, 0.07);
-  border-radius: 5px;
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
   cursor: pointer;
 }
 
@@ -207,6 +299,9 @@ label[for=input]:hover {
 }
 
 .visible-footer {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
   display: flex !important;
 }
 
@@ -216,7 +311,8 @@ label[for=input]:hover {
 
 .border {
   border: 1px solid rgba(0, 0, 0, 0.5) !important;
-  border-radius: 5px !important;
+  -webkit-border-radius: 5px !important;
+          border-radius: 5px !important;
 }
 
 .arrow-color {
